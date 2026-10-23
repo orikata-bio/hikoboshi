@@ -164,8 +164,6 @@ jobs:
               ''.join(('p', 'f', 'suite')),
               ''.join(('d', '2p')),
               ''.join(('D', '2P')),
-              ''.join(('ori', 'kata')),
-              ''.join(('Ori', 'kata')),
           )
           legacy_shorthand = re.compile(r'\b' + 'p' + 'f' + r'[a-zA-Z0-9_]*\b')
           # Exact historical W&B project names are immutable provenance

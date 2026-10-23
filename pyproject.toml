@@ -26,9 +26,9 @@ classifiers = [
 numpy = ["numpy>=1.24"]
 
 [project.urls]
-Homepage = "https://github.com/megure-labs/hikoboshi"
-Repository = "https://github.com/megure-labs/hikoboshi"
-Issues = "https://github.com/megure-labs/hikoboshi/issues"
+Homepage = "https://github.com/orikata-bio/hikoboshi"
+Repository = "https://github.com/orikata-bio/hikoboshi"
+Issues = "https://github.com/orikata-bio/hikoboshi/issues"
 
 [tool.meson-python.args]
 setup = ["-Dhikoboshi_python_api=true"]

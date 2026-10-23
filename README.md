@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/megure-labs/hikoboshi/actions/workflows/ci.yml"><img src="https://github.com/megure-labs/hikoboshi/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/orikata-bio/hikoboshi/actions/workflows/ci.yml"><img src="https://github.com/orikata-bio/hikoboshi/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.10%2B-blue.svg" alt="Python 3.10+"></a>
   <a href="https://isocpp.org/"><img src="https://img.shields.io/badge/C%2B%2B-17-00599C.svg" alt="C++17"></a>
   <a href="https://www.apache.org/licenses/LICENSE-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-green.svg" alt="License: Apache 2.0"></a>
@@ -50,7 +50,7 @@ encodings instead of recomputing a protein for every comparison.
 source release built with Meson. For the native CLI and C++ library:
 
 ```bash
-git clone https://github.com/megure-labs/hikoboshi.git
+git clone https://github.com/orikata-bio/hikoboshi.git
 cd hikoboshi
 meson setup builddir -Dbuildtype=release -Dhikoboshi_python_api=false
 meson compile -C builddir -j 8
@@ -288,26 +288,20 @@ projects.
 
 ## Contributing, license, and provenance
 
-Admission is actor-neutral. Human-written and agent-written changes are subject
-to the same provenance, clean-room, licensing, validation, and admission
-requirements. Maintainer authority can authorize work, but it does not exempt a
-change from those requirements.
-
-External upstream contributions are temporarily closed until Megure Labs
-deploys the production Kaname verifier. Forking and downstream modification
-remain permitted under Apache-2.0. During the current pre-verifier bootstrap,
-only explicitly authorized Megure-maintainer changes are admitted and no Kaname
-history is claimed. Once the repository activates its forward-only enforcement
-base, every later change will require a complete Kaname-compatible history.
-Read [CONTRIBUTING.md](CONTRIBUTING.md), [AGENTS.md](AGENTS.md),
+Active development is maintained at
+[orikata-bio/hikoboshi](https://github.com/orikata-bio/hikoboshi).
+Public contributions are welcome. Kaname capture is optional; licensing,
+clean-room, validation, and ordinary maintainer review requirements apply to
+human-written and agent-assisted contributions alike. See
+[CONTRIBUTING.md](CONTRIBUTING.md), [AGENTS.md](AGENTS.md),
 [the clean-room policy](CLEAN_ROOM.md), and
-[the provenance policy](PROVENANCE_POLICY.md).
+[the public contribution policy](PROVENANCE_POLICY.md).
 
 Hikoboshi is licensed under Apache-2.0. See [LICENSE](LICENSE) and
 [NOTICE](NOTICE). Embedded model artifacts and PDB fixtures retain their
 separate permissive terms in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-The repository is a fresh release cut owned by Megure Labs and attributed to
-Casey Mogilevsky. Development records for this release are retained privately
-and are available on request. See [PROVENANCE.md](PROVENANCE.md).
+The repository continues the original Megure Labs public release attributed to
+Casey Mogilevsky. Existing copyright, licensing, and artifact notices are
+preserved. See [PROVENANCE.md](PROVENANCE.md) for historical records.

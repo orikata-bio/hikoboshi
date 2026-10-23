@@ -4,7 +4,7 @@
 
 Please do not open a public issue for a suspected security or memory-safety
 vulnerability. Use GitHub's private vulnerability-reporting flow on the
-`megure-labs/hikoboshi` repository. Include the affected version, platform,
+`orikata-bio/hikoboshi` repository. Include the affected version, platform,
 compiler, a minimal reproducer, and any sanitizer or crash output.
 
 Do not include credentials, private data, proprietary structures, or private

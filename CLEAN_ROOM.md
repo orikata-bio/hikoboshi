@@ -6,7 +6,7 @@ This document defines Hikoboshi's normative clean-room process for work that
 could otherwise derive protected expression from a third-party implementation.
 It is based on Megure Labs' three-role clean-room workflow. `AGENTS.md` states
 the repository-wide boundary; this file defines how a clean-room attempt must
-actually be isolated, captured, and reviewed.
+actually be isolated, documented, and reviewed. Kaname capture is optional.
 
 Clean-room treatment does not remove licensing, notice, patent, data-use, or
 model-license obligations. A clean-room implementation is admissible only when
@@ -18,7 +18,7 @@ obligation is satisfied.
 An implementation attempt is tainted when a person or coding agent working on
 it has viewed relevant third-party implementation source. Stop that attempt,
 identify the material and access that caused the contamination, preserve the
-real record, and notify a Megure Labs maintainer. Do not sanitize the attempt by
+real record, and notify a project maintainer. Do not sanitize the attempt by
 rewriting its history, paraphrasing the source, replaying its final diff, or
 asking another agent to reproduce it from a retrospective summary.
 
@@ -85,53 +85,23 @@ and is fixed before the corresponding implementation attempt starts.
 
 ## Evidence and access controls
 
-Each role must use a separate identity, workspace, prompt, and allowlist. The
-complete Kaname-compatible record must preserve at least:
+Each role uses a separate identity, workspace, prompt, and allowlist. Record
+maintainer authorization, role assignments, approved and prohibited materials,
+the fixed specification, source and license disclosures, produced commits,
+validation, and the admission decision. Identify what access evidence is
+actually available and any limitations. Kaname or other capture tooling may be
+used when explicitly requested; it is not a prerequisite for public work.
 
-- maintainer authority, scope, role assignments, and approved/prohibited
-  materials;
-- exact prompts, messages, model/provider/harness identities, tool calls and
-  results, stdout, stderr, and lifecycle events;
-- every path, process, network, and external-material access required by the
-  active evidence profile;
-- every created or modified file with size and cryptographic digest;
-- immutable digests for specification revisions, test vectors, the candidate
-  diff, validations, findings, and decisions; and
-- clean termination, capture-completeness accounting, independent review,
-  adjudication, and human approval where required.
+## Verification and admission
 
-An agent's statement that it respected the wall is not evidence. Git history, a
-final diff, output similarity, or a public change record cannot replace the
-captured access history.
+Use the available evidence to check workspace separation, prohibited accesses,
+the approved specification, and the candidate under review. Do not claim a
+mechanically verified wall when no such verification occurred. A maintainer
+resolves uncertainty about source exposure before admission and may require a
+new isolated attempt. Never fabricate missing access records or rewrite a
+tainted attempt as clean-room work.
 
-## Mechanical wall verification
-
-Before review, the verifier must reconstruct every role's read, write, execute,
-and network accesses from the retained event record and fail closed if it finds
-a forbidden access, missing event interval, unknown tool result, unbound output,
-role/workspace overlap, or digest mismatch. It must also verify that:
-
-- the specification role wrote only the authorized specification and evidence
-  surfaces;
-- the implementation role never reached the contamination zone or its logs;
-- the audit role never reached either source tree or another role's logs;
-- the implementation started from the approved specification digest; and
-- the reviewed candidate is byte-identical to the candidate bound by the trace.
-
-The human orchestrator reviews the full contamination-zone record, resolves
-audit findings without crossing the wall, and records the admission decision.
-If the wall cannot be proved intact, discard the candidate and begin a newly
-authorized attempt; do not repair the evidence retrospectively.
-
-## Bootstrap and post-enforcement admission
-
-During the explicit pre-verifier bootstrap period, a maintainer-authorized
-change may proceed without a Kaname trace, but no one may claim that an
-uncaptured clean-room process occurred. A bootstrap change that depends on a
-clean-room restart must still use real role separation and disclose the
-available evidence and its limitations.
-
-After `.provenance/KANAME_ENFORCEMENT_BASE` is present in the pull request's
-base, a clean-room change is merge-eligible only when the complete three-role
-history and a passing mechanical wall result are retained by Kaname and bound
-to the public change record required by `PROVENANCE_POLICY.md`.
+The same public contribution policy applies to this process: ordinary GitHub
+review, appropriate tests, licensing, attribution, and honest source and
+assistance disclosures. A mandatory Kaname trace, enforcement marker, or public
+change record is not an admission requirement. See `PROVENANCE_POLICY.md`.

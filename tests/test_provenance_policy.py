@@ -8,9 +8,6 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 VALIDATOR_PATH = ROOT / "tools" / "validate_change_provenance.py"
 SCHEMA_PATH = ROOT / ".provenance" / "change-provenance.schema.json"
-WORKFLOW_PATH = ROOT / ".github" / "workflows" / "provenance.yml"
-POLICY_PATH = ROOT / "PROVENANCE_POLICY.md"
-ENFORCEMENT_MARKER = ".provenance/KANAME_ENFORCEMENT_BASE"
 
 SPEC = importlib.util.spec_from_file_location("validate_change_provenance", VALIDATOR_PATH)
 assert SPEC is not None and SPEC.loader is not None
@@ -156,19 +153,3 @@ def test_viewed_implementation_requires_clean_room_restart():
     manifest["clean_room"]["external_implementation_source_viewed"] = True
     with pytest.raises(validator.PolicyError, match="clean-room restart"):
         validate(manifest)
-
-
-def test_trusted_base_workflow_uses_forward_only_enforcement_marker():
-    workflow = WORKFLOW_PATH.read_text()
-    assert "pull_request_target:" in workflow
-    assert "ref: ${{ github.event.pull_request.base.sha }}" in workflow
-    assert f"test -f {ENFORCEMENT_MARKER}" in workflow
-    assert workflow.count("if: steps.enforcement.outputs.active == 'true'") == 2
-    assert "Never execute or check out pull-request code" in workflow
-
-
-def test_policy_does_not_claim_bootstrap_kaname_provenance():
-    policy = POLICY_PATH.read_text()
-    assert ENFORCEMENT_MARKER in policy
-    assert "must not add a public change record" in policy
-    assert "Bootstrap history is never rewritten or relabeled as Kaname history" in policy

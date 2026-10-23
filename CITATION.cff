@@ -7,5 +7,5 @@ date-released: 2026-09-22
 authors:
   - family-names: Mogilevsky
     given-names: Casey Sumagaysay
-repository-code: "https://github.com/megure-labs/hikoboshi"
+repository-code: "https://github.com/orikata-bio/hikoboshi"
 license: Apache-2.0
