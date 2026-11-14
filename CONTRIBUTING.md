@@ -11,8 +11,8 @@ to prepare a public pull request.
 2. Follow the public API contracts and clean-room rules in `AGENTS.md`.
 3. Run checks appropriate to the change and report commands and results.
    Native or GPU changes need applicable build and hardware validation.
-4. Disclose relevant external materials and material coding-agent or AI
-   assistance. State any missing validation or unavailable hardware plainly.
+4. Credit contributors and relevant external materials and notices. State
+   missing validation or unavailable hardware plainly.
 5. Open a pull request using the repository template. Maintainers review the
    change through the ordinary GitHub process.
 
@@ -44,3 +44,28 @@ Follow the validation commands in `AGENTS.md` and `docs/source-build.md`, scaled
 to the affected behavior. Documentation-only changes do not require rebuilding
 unchanged native kernels. Report vulnerabilities privately through
 `SECURITY.md`.
+
+<!-- BEGIN REPOSITORY-CONTRIBUTION-WORKFLOW-V1 -->
+## Public contribution workflow
+
+Use a focused fork branch and open a pull request into `main`. Give a normal
+change/test summary and appropriate contributor/source credits. Preserve existing
+license notices and project-specific source-use requirements. Kaname capture is
+optional for public contributions; never claim capture that did not occur.
+
+A company maintainer approves the exact submitted commit before it enters
+privileged internal testing. For an explicitly paired repository, maintainers
+port the approved patch into an isolated private development PR. Full human/agent
+contribution records, product tests, Greptile and CodeRabbit reviews belong there.
+The private record retains the original public PR, exact commit and author credit.
+
+Accepted work returns through a curated release PR with a normal public summary,
+validation and credits. Full internal disclosures and private history stay in the
+private development record. Public/release repositories do not run Greptile,
+CodeRabbit or the full internal disclosure validator. Maintainer approval, branch
+protections, release checks and public source/license notices remain in force.
+
+Unpaired repositories have no automatic import destination. Do not invent one.
+Cross-repository routing remains inactive until its scoped credentials and hosted
+end-to-end validation are complete; it never merges a release automatically.
+<!-- END REPOSITORY-CONTRIBUTION-WORKFLOW-V1 -->

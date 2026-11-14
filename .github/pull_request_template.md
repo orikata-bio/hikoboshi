@@ -6,10 +6,9 @@ Describe the problem and resulting behavior.
 
 List commands, environments, results, and any untested platforms.
 
-## Sources and assistance
+## Sources and credits
 
-List relevant external materials, their licenses where applicable, and material
-coding-agent or AI assistance. Disclose any external implementation source viewed.
+List relevant external materials, their licenses where applicable, and contributor credits. Disclose any external implementation source viewed.
 
 ## Licensing
 
